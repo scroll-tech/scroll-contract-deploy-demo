@@ -1,0 +1,15 @@
+[default]
+ffi = false
+fuzz_runs = 256
+optimizer = true
+optimizer_runs = 1000000
+remappings = [
+  "solmate/=lib/solmate/src/",
+  "forge-std/=lib/forge-std/src/"
+]
+verbosity = 1
+
+# Extreme Fuzzing CI Profile :P
+[ci]
+fuzz_runs = 100_000
+verbosity = 4
