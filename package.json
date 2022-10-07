@@ -8,7 +8,7 @@
     "test": "npx hardhat test",
     "clean": "npx hardhat clean",
     "deploy:hh": "npx hardhat run --network hardhat scripts/deploy.ts",
-    "deploy:scollTestnet": "npx hardhat run --network scollTestnet scripts/deploy.ts"
+    "deploy:scrollTestnet": "npx hardhat run --network scrollTestnet scripts/deploy.ts"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.4.7",

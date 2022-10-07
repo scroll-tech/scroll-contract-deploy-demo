@@ -8,7 +8,7 @@ This project demonstrates how to use hardhat or foundry to deploy a contract in 
 2. Create a file `.env` in the directory, or just copy `.env.example` to `.env`.
 3. Change `PRIVATE_KEY` and `SCROLL_TESTNET_URL` to the correct one in file `.env`.
 4. Run `yarn compile` to compile the contract.
-5. Run `yarn deploy:scollTestnet` to deploy the contract in Scroll testnet.
+5. Run `yarn deploy:scrollTestnet` to deploy the contract in Scroll testnet.
 
 ## Deploy with foundry
 
@@ -30,6 +30,7 @@ forge build
 forge create --rpc-url <SCROLL_TESTNET_URL> \
   --value <lock_amount>
   --constructor-args <unlock_time> \
-  --private-key <PRIVATE_KEY> \
+  --interactive \
+  --legacy \
   contracts/Lock.sol:Lock
 ```
