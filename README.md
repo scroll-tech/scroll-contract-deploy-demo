@@ -16,6 +16,7 @@ This project demonstrates how to use hardhat or foundry to deploy a contract in 
 3. Create a `.env` file following the example `.env.example` in the root directory. Change `PRIVATE_KEY` to your own account private key in the `.env`.
 4. Run `yarn compile` to compile the contract.
 5. Run `yarn deploy:scrollTestnet` to deploy the contract on the Scroll Pre-Alpha Testnet.
+6. Run `yarn test` for hardhat tests.
 
 
 ## Deploy with Foundry
@@ -40,7 +41,11 @@ This project demonstrates how to use hardhat or foundry to deploy a contract in 
     ```
   - `<lock_amount>` is the amount of `TSETH` to be locked in the contract. Try setting this to some small amount, like `0.0000001ether`.
   - `<unlock_time>` is the Unix timestamp after which the funds locked in the contract will become available for withdrawal. Try setting this to some Unix timestamp in the future, like `1696118400` (this Unix timestamp corresponds to October 1, 2023).
-    
+  
+  For example:
+  ```
+  forge create --rpc-url https://prealpha.scroll.io/l2 --value 0.00000000002ether --constructor-args 1696118400 --private-key 0xabc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1 --legacy contracts/Lock.sol:Lock
+  ```
   
 ## Support
 
