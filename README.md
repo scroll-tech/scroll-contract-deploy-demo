@@ -38,7 +38,7 @@ This project demonstrates how to use hardhat or foundry to deploy a contract in 
       --legacy \
       contracts/Lock.sol:Lock
     ```
-  - `<lock_amount>` is the amount of `TSETH` to be locked in the contract. Try setting this to some small amount, like `0.0000001ether`.
+  - `<lock_amount>` is the amount of `ETH` to be locked in the contract. Try setting this to some small amount, like `0.0000001ether`.
   - `<unlock_time>` is the Unix timestamp after which the funds locked in the contract will become available for withdrawal. Try setting this to some Unix timestamp in the future, like `1696118400` (this Unix timestamp corresponds to October 1, 2023).
   
   For example:
