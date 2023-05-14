@@ -8,6 +8,7 @@ remappings = [
   "forge-std/=lib/forge-std/src/"
 ]
 verbosity = 1
+evm_version = "london"
 
 # Extreme Fuzzing CI Profile :P
 [profile.ci]
