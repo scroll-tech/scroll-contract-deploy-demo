@@ -43,7 +43,12 @@ This project demonstrates how to use hardhat or foundry to deploy a contract in 
   
   For example:
   ```
-  forge create --rpc-url https://alpha-rpc.scroll.io/l2 --value 0.00000000002ether --constructor-args 1696118400 --private-key 0xabc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1 --legacy contracts/Lock.sol:Lock
+  forge create --rpc-url https://alpha-rpc.scroll.io/l2 \
+    --value 0.00000000002ether \
+    --constructor-args 1696118400 \
+    --private-key 0xabc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1 \
+    --legacy \
+    contracts/Lock.sol:Lock
   ```
   
 ## Support
