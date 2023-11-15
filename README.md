@@ -5,7 +5,7 @@ This project demonstrates how to use hardhat or foundry to deploy a contract in 
 
 ## Prerequisites
 
-- Network setup: https://guide.scroll.io/user-guide/setup
+- Network setup: [Guide](https://guide.scroll.io/user-guide/setup)
 
 
 ## Deploy with Hardhat
