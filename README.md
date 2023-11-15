@@ -14,7 +14,8 @@ This project demonstrates how to use hardhat or foundry to deploy a contract in 
 2. Run `yarn install` to install dependencies.
 3. Create a `.env` file following the example `.env.example` in the root directory. Change `PRIVATE_KEY` to your own account private key in the `.env`.
 4. Run `yarn compile` to compile the contract.
-5. Run `yarn deploy:scrollTestnet` to deploy the contract on the Scroll Alpha Testnet.
+5. To deploy the contract on the Scroll Sepolia Testnet, run `yarn deploy:scrollTestnet`.
+6. To deploy the contract on the Scroll Mainnet, run `yarn deploy:scrollMainnet` (ensure that your `.env` file contains appropriate credentials and settings for the Scroll Mainnet).
 6. Run `yarn test` for hardhat tests.
 
 
@@ -31,7 +32,7 @@ This project demonstrates how to use hardhat or foundry to deploy a contract in 
     ```
 3. Deploy the contract.
     ```
-    forge create --rpc-url https://alpha-rpc.scroll.io/l2 \
+    forge create --rpc-url https://sepolia-rpc.scroll.io \
       --value <lock_amount> \
       --constructor-args <unlock_time> \
       --private-key <your_private_key> \
@@ -43,7 +44,7 @@ This project demonstrates how to use hardhat or foundry to deploy a contract in 
   
   For example:
   ```
-  forge create --rpc-url https://alpha-rpc.scroll.io/l2 \
+  forge create --rpc-url https://sepolia-rpc.scroll.io \
     --value 0.00000000002ether \
     --constructor-args 1696118400 \
     --private-key 0xabc123abc123abc123abc123abc123abc123abc123abc123abc123abc123abc1 \
