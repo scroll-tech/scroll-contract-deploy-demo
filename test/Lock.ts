@@ -23,6 +23,8 @@ describe("Lock", function () {
     return { lock, unlockTime, lockedAmount, owner, otherAccount };
   }
 
+  /* The code you provided is a test suite for the "Deployment" functionality of a smart contract called
+  "Lock". */
   describe("Deployment", function () {
     it("Should set the right unlockTime", async function () {
       const { lock, unlockTime } = await loadFixture(deployOneYearLockFixture);
@@ -56,6 +58,8 @@ describe("Lock", function () {
     });
   });
 
+  /* The code you provided is a set of tests for the "Withdrawals" functionality of a smart contract
+  called "Lock". */
   describe("Withdrawals", function () {
     describe("Validations", function () {
       it("Should revert with the right error if called too soon", async function () {
