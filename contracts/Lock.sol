@@ -3,26 +3,21 @@ pragma solidity ^0.8.9;
 
 contract Lock {
     uint public unlockTime;
-    address payable public owner;
+    address private owner;
 
-    event Withdrawal(uint amount, uint when);
+    event Withdrawal(address indexed recipient, uint amount, uint timestamp);
 
-    constructor(uint _unlockTime) payable {
-        require(
-            block.timestamp < _unlockTime,
-            "Unlock time should be in the future"
-        );
-
+    constructor(uint _unlockTime) {
+        require(block.timestamp < _unlockTime, "Unlock time should be in the future");
         unlockTime = _unlockTime;
-        owner = payable(msg.sender);
+        owner = msg.sender;
     }
 
     function withdraw() public {
-        require(block.timestamp >= unlockTime, "You can't withdraw yet");
-        require(msg.sender == owner, "You aren't the owner");
+        require(block.timestamp >= unlockTime, "Withdrawal time not reached");
+        require(msg.sender == owner, "Only the owner can withdraw");
 
-        emit Withdrawal(address(this).balance, block.timestamp);
-
-        owner.transfer(address(this).balance);
+        emit Withdrawal(owner, address(this).balance, block.timestamp);
+        payable(owner).transfer(address(this).balance);
     }
 }
