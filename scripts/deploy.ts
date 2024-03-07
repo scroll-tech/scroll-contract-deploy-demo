@@ -1,14 +1,14 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
+  let currentTimestampInSeconds = Math.round(Date.now() / 1000);
+  let ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
+  let unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
 
-  const lockedAmount = ethers.utils.parseEther("0.00000001");
+  let lockedAmount = ethers.utils.parseEther("0.00000001");
 
-  const Lock = await ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  let Lock = await ethers.getContractFactory("Lock");
+  let lock = await Lock.deploy(unlockTime, { value: lockedAmount });
 
   await lock.deployed();
 
