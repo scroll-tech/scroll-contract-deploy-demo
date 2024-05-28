@@ -1,6 +1,6 @@
 # Scroll Contract Deployment Demo
 
-This project demonstrates how to use hardhat or foundry to deploy a contract in Scroll's rollup network. This project contains a simple contract that will lock a certain amount of Ether in the deployed contract for a specified amount of time.
+This project demonstrates how to use hardhat, foundry or brownie to deploy a contract in Scroll's rollup network. This project contains a simple contract that will lock a certain amount of Ether in the deployed contract for a specified amount of time.
 
 
 ## Prerequisites
@@ -50,7 +50,89 @@ This project demonstrates how to use hardhat or foundry to deploy a contract in 
     --legacy \
     contracts/Lock.sol:Lock
   ```
-  
+
+## Deploy with Brownie
+
+### 1. Install pipx.
+
+```shell
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+```
+
+### 2. Install Brownie.
+
+After you close and reopen the terminal, run the following command:
+
+```shell
+pipx install eth-brownie
+```
+
+or, alternatively, run:
+
+```shell
+pip install eth-brownie
+```
+
+### 3. Create a New Account.
+
+Create a new Brownie account and add your EVM wallet to it. It will prompt you to enter your EVM wallet's private key and a new password for that specific account.
+
+> **WARNING**
+>
+> NEVER SHARE YOUR PRIVATE KEY OR YOUR SECRET PHRASE WITH ANYONE.
+
+```shell
+# If you choose a different account name than [main-account], you will also need to change the global variable BROWNIE_ACCOUNT_NAME in <./scripts/deploy.py> to the new chosen name.
+brownie accounts new main-account
+```
+
+If you want to list all created accounts, run the following command:
+
+```shell
+brownie accounts list
+```
+
+### 4. Add the Scroll Network to Brownie.
+
+To add the Scroll Network to Brownie, run the following command: 
+
+- For testnet:
+
+```
+brownie networks add Ethereum "Scroll (Testnet)" id=scrollSepolia host=https://sepolia-rpc.scroll.io/ chainid=534351 explorer=https://sepolia.scrollscan.com/
+```
+
+- For mainnet:
+
+```
+brownie networks add Ethereum "Scroll (Mainnet)" id=scroll host=https://rpc.scroll.io/ chainid=534352 explorer=https://scrollscan.com/
+```
+
+### 5. Prepare the Workspace.
+
+Inside the project workspace root folder, compile the project by running the following command:
+
+```shell	
+brownie compile
+```
+
+### 6. Deploy the Contract.
+
+After installing Brownie and compiling the project, it is time to run the `deploy.py` Python script that deploys the `Lock.sol` Solidity contract to the blockchain.
+
+- For testnet:
+
+```shell	
+brownie run scripts/deploy.py --network scrollSepolia
+```
+
+- For mainnet:
+
+```shell	
+brownie run scripts/deploy.py --network scroll
+```
+
 ## Support
 
 Join our Discord: https://scroll.io/
