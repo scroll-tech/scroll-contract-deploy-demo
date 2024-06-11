@@ -58,3 +58,5 @@ This project demonstrates how to use hardhat or foundry to deploy a contract in 
 ## Support
 
 Join our Discord: https://scroll.io/
+
+Here is my twitter social @satoshidesi
