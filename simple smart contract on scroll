@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Scrool {
+    address public owner;
+    mapping(address => uint) public balances;
+
+    event Transfer(address indexed from, address indexed to, uint value);
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    function transfer(address to, uint value) external {
+        require(balances[msg.sender] >= value, "Insufficient balance");
+        balances[msg.sender] -= value;
+        balances[to] += value;
+        emit Transfer(msg.sender, to, value);
+    }
+}
