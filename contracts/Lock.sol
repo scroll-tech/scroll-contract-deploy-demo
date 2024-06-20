@@ -25,4 +25,22 @@ contract Lock {
 
         owner.transfer(address(this).balance);
     }
+
+    modifier onlyOwner {
+    require(msg.sender == owner, "You are not the owner");
+    _;
+}
+
+event LockUpdated(uint newUnlockTime, address indexed updatedBy);
+}
+
+function withdraw() public {
+    require(block.timestamp >= unlockTime, "You can't withdraw yet");
+    require(msg.sender == owner, "You aren't the owner");
+
+    emit Withdrawal(address(this).balance, block.timestamp);
+
+    (bool success, ) = owner.call{value: address(this).balance}("");
+    require(success, "Transfer failed");
+}
 }
